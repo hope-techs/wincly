@@ -1,20 +1,27 @@
-pytz==2018.5  # https://github.com/stub42/pytz
-python-slugify==1.2.5  # https://github.com/un33k/python-slugify
-Pillow==5.2.0  # https://github.com/python-pillow/Pillow
-rcssmin==1.0.6  # https://github.com/ndparker/rcssmin
-argon2-cffi==18.1.0  # https://github.com/hynek/argon2_cffi
-redis>=2.10.5  # https://github.com/antirez/redis
+pytz  # https://github.com/stub42/pytz
+python-slugify # https://github.com/un33k/python-slugify
+Pillow  # https://github.com/python-pillow/Pillow
+redis  # https://github.com/antirez/redis
+
 
 # Django
 # ------------------------------------------------------------------------------
-django==2.0.8  # pyup: < 2.1  # https://www.djangoproject.com/
-django-environ==0.4.5  # https://github.com/joke2k/django-environ
-django-model-utils==3.1.2  # https://github.com/jazzband/django-model-utils
-django-allauth==0.36.0  # https://github.com/pennersr/django-allauth
-django-crispy-forms==1.7.2  # https://github.com/django-crispy-forms/django-crispy-forms
-django-compressor==2.2  # https://github.com/django-compressor/django-compressor
-django-redis==4.9.0  # https://github.com/niwinz/django-redis
+django  # pyup: < 2.1  # https://www.djangoproject.com/
+django-environ  # https://github.com/joke2k/django-environ
+# django-model-utils  # https://github.com/jazzband/django-model-utils
+django-allauth  # https://github.com/pennersr/django-allauth
+django-crispy-forms  # https://github.com/django-crispy-forms/django-crispy-forms
+django-redis  # https://github.com/niwinz/django-redis
 
 # Django REST Framework
-djangorestframework==3.8.2  # https://github.com/encode/django-rest-framework
-coreapi==2.3.3  # https://github.com/core-api/python-client
+djangorestframework  # https://github.com/encode/django-rest-framework
+django-filter  # https://github.com/carltongibson/django-filter
+django-oauth-toolkit  # https://github.com/evonove/django-oauth-toolkit
+djangorestframework-jwt  # https://getblimp.github.io/django-rest-framework-jwt/
+
+# 3rd Party Packages
+# ------------------------------------------------------------------------------
+django-taggit  # https://github.com/alex/django-taggit
+django-ckeditor  # https://github.com/django-ckeditor/django-ckeditor
+django-analytical  # https://github.com/jcassee/django-analytical
+django-compressor  # https://github.com/django-compressor/django-compressor
