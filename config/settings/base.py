@@ -99,8 +99,7 @@ LOCAL_APPS = [
     'wincly.users.apps.UsersAppConfig',
 
     # My Apps
-    # 'app',
-    # 'blog',
+    'app',
 ]
 # https://docs.djangoproject.com/en/dev/ref/settings/#installed-apps
 INSTALLED_APPS = DJANGO_APPS + THIRD_PARTY_APPS + LOCAL_APPS
@@ -179,7 +178,7 @@ STATICFILES_DIRS = [
     # Users
     str(APPS_DIR.path('users/static')),
     # My Apps
-    # str(APPS_DIR.path('app/static')),
+    str(APPS_DIR.path('app/static')),
 
 ]
 # https://docs.djangoproject.com/en/dev/ref/contrib/staticfiles/#staticfiles-finders
@@ -212,7 +211,7 @@ TEMPLATES = [
             str(APPS_DIR.path('templates/errors')),
             # Apps
             str(APPS_DIR.path('users/templates')),
-            # str(APPS_DIR.path('app/templates')),
+            str(APPS_DIR.path('app/templates')),
         ],
         'OPTIONS': {
             # Debugging Complex Templates
