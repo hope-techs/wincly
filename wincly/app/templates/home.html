@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+
+{% block title %}
+    {{ block.super }} | Home
+{% endblock title %}
+
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/home.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block main_content %}
+
+    <!-- Parallax -->
+    <div>
+        
+        <div class="view parallax" id="intro">
+
+            <div class="mask rgba-blue-slight">
+                <div class="container flex-center text-center fontBold">
+                    <div>
+                        <!--
+                        <div class="col-md-12 wow fadeIn mb-3">
+                            <h1 class="display-3 mb-2 wow fadeInDown" data-wow-delay="0.3s">NATALIE <a class="indigo-text font-weight-bold">SMITH</a></h1>
+                            <h5 class="text-uppercase mb-3 mt-1 font-weight-bold wow fadeIn" data-wow-delay="0.4s">Web developer & graphic designer</h5>
+                            <a class="btn btn-light-blue btn-lg wow fadeIn" data-wow-delay="0.4s">portfolio</a> <a class="btn btn-indigo btn-lg wow fadeIn" data-wow-delay="0.4s">About me</a>
+                        </div>
+                        -->
+                        <div class="introContent">
+                            <h1>
+                                WE ARE THE NEW STANDARD
+                            </h1>
+                            <br />
+                            <h1>
+                                {% blocktrans %}
+                                    نخستین مجله تخصصی آنلاین هتل گردی
+                                {% endblocktrans %}
+                            </h1>
+                            <br />
+                            <br />
+
+                        <div class="mt-5">
+                            <a class="btn btn-primary flex-center text-center" href="#demo">
+                                {% trans 'جستجو' %}
+                            </a>
+                        </div>
+
+                    </div>
+                    
+                    </div>
+                    
+                </div>
+
+            </div> 
+
+    </div>
+
+    <!--Main layout-->
+    <main>
+        <div>
+
+            <!-- Main info-->
+
+            <div class="container" id="about">
+
+                <!-- Hotel List -->
+                <div class="features-small mt-4 wow fadeIn">
+
+                    <div class="row col col-lg-12">
+
+                    {% for hotel in Hotels %}
+
+                        <div class="col col-lg-4 col-md-6 col-sm-12 mt-4">
+                            <div class="card col-12">
+                                <!-- Image -->
+                                <div class="imgWrapper">
+                                    {% comment %} <img src="img_snow_wide.jpg" alt="Snow" style="width:100%;"> {% endcomment %}
+                                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ hotel.image }}" alt="{{ hotel.name }}" width="100%">
+                                    <div class="centered">
+                                        <p class="imgText">{{ hotel.country }} - {{ hotel.city }}</p>
+                                    </div>
+                                </div> 
+                                <!-- Body -->
+                                <div class="card-body">
+                                    <h5 class="card-title alignMid">{{ hotel.name }}</h5>
+                                    <p class="card-text alignRight">{{ hotel.summary }}</p>
+                                    {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+                    </div> 
+
+                </div>
+
+            </div>
+
+
+            <div class="view parallax" id="demo">
+                <div class="container">
+
+                    <table class="mt-5">
+                        <tr>
+                            <td>
+                                <h2 class="introContent">
+                                    {% blocktrans %}
+                                        کجا&nbsp;؟
+                                    {% endblocktrans %}
+                                </h2>
+                            </td>
+                            <td><h4><input class="transparentInput" type="text" placeholder="{% trans 'کشور' %}" /></h4></td>
+                            <td></td>
+                            <td><h4><input class="transparentInput" type="text" placeholder="{% trans 'شهر' %}" /></h4></td>
+                        </tr>
+                        <tr>
+                            <td><h3 class="introContent">{% trans 'یا' %}</h3></td>
+                            <td><h4><input class="transparentInput" type="text" placeholder="{% trans 'هتل' %}" /></h4></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td class="introIconStyle"><img src="{% static 'img/train.png' %}" height="100" /></td>
+                            <td class="introIconStyle"><img src="{% static 'img/plane.png' %}" height="100" /></td>
+                            <td></td>
+                            <td class="introIconStyle"><img src="{% static 'img/boat.png' %}" height="100" /></td>
+                        </tr>
+                    </table> 
+
+                </div>
+            </div>
+
+            
+        </div>
+    </main>
+    <!--Main layout-->
+
+
+{% endblock main_content %}
+
+

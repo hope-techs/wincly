@@ -7,6 +7,7 @@ from app.models import Hotel
 class HotelAdmin(admin.ModelAdmin):
     fieldsets = [
         ('Info', {'fields': ['name', 'user', 'image', 'content', 'summary']}),
+        ('Location', {'fields': ['country', 'city']}),
         ('Date & Time', {'fields': ['publish', 'draft', 'created', 'updated']}),
         ('Meta', {'fields': ['tags', 'slug']})
     ]

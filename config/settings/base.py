@@ -206,11 +206,11 @@ TEMPLATES = [
         'APP_DIRS': True,
         'DIRS': [
             # Root
-            str(APPS_DIR.path('templates')),
+            # str(APPS_DIR.path('templates')),
             # Errors
-            str(APPS_DIR.path('templates/errors')),
+            str(APPS_DIR.path('app/templates/errors')),
             # Apps
-            str(APPS_DIR.path('users/templates')),
+            str(APPS_DIR.path('app/users/templates')),
             str(APPS_DIR.path('app/templates')),
         ],
         'OPTIONS': {

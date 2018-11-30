@@ -24,6 +24,8 @@ class Hotel(models.Model):
     image = models.ImageField(blank = True, null = True, upload_to = upload_path, verbose_name = _('Image'))
     content = models.TextField(verbose_name = _('Content'))
     summary = models.CharField(max_length = 511, blank = True, null = True, verbose_name = _('Summary'))
+    country = models.CharField(max_length = 255, verbose_name = _('Country'))
+    city = models.CharField(max_length = 255, verbose_name = _('City'))
     # Date Time Information
     created = models.DateTimeField(auto_now_add = True, auto_now = False, verbose_name = _('Created'))
     updated = models.DateTimeField(auto_now_add = False, auto_now = True, verbose_name = _('Updated'))

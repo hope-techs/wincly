@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static i18n compress%}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <title>{% block title %}Wincly{% endblock title %}</title>
+  <link rel="icon" href="{% static 'img/favicons/favicon.ico' %}">
+
+  {% block css %}
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    {% compress css %}
+
+      <!-- Bootstrap core CSS -->
+      <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+      <!-- Material Design Bootstrap -->
+      <link href="{% static 'css/mdb.min.css' %}" rel="stylesheet">
+      <!-- Your custom styles (optional) -->
+      <!-- <link href="css/style.min.css" rel="stylesheet"> -->
+      <link href="{% static 'css/style.css' %}" rel="stylesheet">
+      <link href="{% static 'css/animate.min.css' %}" rel="stylesheet">
+      <style type="text/css">
+
+        html,
+        body,
+        header,
+        .carousel {
+          height: 100%;
+        }
+
+        @media (min-width: 800px) and (max-width: 850px) {
+                .navbar:not(.top-nav-collapse) {
+                    background: #1C2331!important;
+                }
+            }
+      </style>
+
+    {% endcompress %}
+  {% endblock %}
+
+  
+    {% block javascript %}
+
+      {% compress js %}
+      {% endcompress %}
+
+    {% endblock javascript %}
+
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="navBar">
+    <div class="container">
+
+      <!-- Collapse -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+        aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Links -->
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+        <!-- Left -->
+        <ul class="navbar-nav">
+          <li class="nav-item active">
+            <a class="nav-link" href="#demo">
+              {% trans 'هتل ها' %}
+              <span class="sr-only">(current)</span>
+            </a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#about">{% trans 'وینکلی چیست' %}</a>
+          </li>
+          <li class="nav-item">
+              <a class="nav-link" href="#contactForm">{% trans 'تماس با ما' %}</a>              
+          </li>
+
+        </ul>
+
+        <!-- Right -->
+        <ul class="navbar-nav nav-flex-icons  mr-auto">
+          <li class="nav-item">
+          </li>
+        </ul>
+
+      </div>
+
+      <!-- Brand -->
+      <a class="navbar-brand fontBold" href="#">
+        <strong>The Wincly Hotels Magazine</strong>
+        <img src="{% static 'img/logo-white.png' %}" height="50" />
+      </a>
+
+    </div>
+  </nav>
+  <!-- Navbar -->
+
+  <!-- Back to top -->
+  <a class="btn-floating btn-lg btn-info" id="back2Top" title="Back to top" href="#"><i class="fas fa-arrow-up"></i></a>
+
+  {% block main_content %}
+
+
+  {% endblock main_content %}
+
+  <!--  Messages -->
+  <div class="container">
+
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert {% if message.tags %}alert-{{ message.tags }}{% endif %}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+
+    {% block content %}
+      
+    {% endblock content %}
+
+  </div>
+  {% block modal %}{% endblock modal %}
+
+  <!--Footer-->
+  <footer class="page-footer text-center font-small">
+
+    <!-- Social icons -->
+    <div class="p-4">
+      <a href="https://www.facebook.com/" target="_blank">
+        <i class="fab fa-facebook fa-lg mr-3" style="color: #3b5999;"></i>
+      </a>
+
+      <a href="https://twitter.com/" target="_blank">
+        <i class="fab fa-twitter fa-lg mr-3" style="color: #55acee;"></i>
+      </a>
+
+      <a href="https://www.youtube.com/" target="_blank">
+        <i class="fab fa-youtube fa-lg mr-3" style="color: #cd201f;"></i>
+      </a>
+
+      <a href="https://plus.google.com/" target="_blank">
+        <i class="fab fa-google-plus fa-lg mr-3" style="color: #dd4b39;"></i>
+      </a>
+
+      <a href="https://telegram.org/" target="_blank">
+        <i class="fab fa-telegram-plane fa-lg mr-3" style="color: #0084ff;"></i>
+      </a>
+
+      <a href="https://pinterest.com/" target="_blank">
+        <i class="fab fa-pinterest fa-lg mr-3" style="color: #bd081c;"></i>
+      </a>
+
+      <a href="https://github.com/" target="_blank">
+        <i class="fab fa-github fa-lg mr-3" style="color: black;"></i>
+      </a>
+
+      <a href="https://www.instagram.com/" target="_blank">
+        <i class="fab fa-instagram fa-lg mr-3" style="color: #e4405f;"></i>
+      </a>
+    </div>
+    <!-- Social icons -->
+
+    <!--Copyright-->
+    <div class="footer-copyright py-3" style="direction: ltr;">
+      © 
+      2018 
+      {% blocktrans %}
+      Wincly Magazine
+      All Rights Reserved
+      {% endblocktrans %}
+      .
+    </div>
+    <!--/.Copyright-->
+
+  </footer>
+  <!--/.Footer-->
+
+  <!-- SCRIPTS -->
+  <!-- JQuery -->
+  <script type="text/javascript" src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+  <!-- Bootstrap tooltips -->
+  <script type="text/javascript" src="{% static 'js/popper.min.js' %}"></script>
+  <!-- Bootstrap core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+  <!-- MDB core JavaScript -->
+  <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
+  <!-- Initializations -->
+  <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+</body>
+
+</html>
+
+
