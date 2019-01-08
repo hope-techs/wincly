@@ -14,7 +14,7 @@
 
 {% block main_content %}
 
-    <!-- Parallax -->
+    <!-- Top Parallax -->
     <div>
         
         <div class="view parallax" id="intro">
@@ -30,7 +30,7 @@
                         </div>
                         -->
                         <div class="introContent">
-                            <h1>
+                            <h1 id="shakh">
                                 WE ARE THE NEW STANDARD
                             </h1>
                             <br />
@@ -42,9 +42,9 @@
                             <br />
                             <br />
 
-                        <div class="mt-5">
-                            <a class="btn btn-primary flex-center text-center" href="#demo">
-                                {% trans 'جستجو' %}
+                        <div>
+                            <a class="btn-floating purple-gradient"  href="#demo" id="BtnTo">
+                                <img src="{% static '/img/chevron-arrow-down.png' %}" width="50" />
                             </a>
                         </div>
 
@@ -61,38 +61,40 @@
     <!--Main layout-->
     <main>
         <div>
-
-            <!-- Main info-->
+            <!-- Main info -->
 
             <div class="container" id="about">
 
                 <!-- Hotel List -->
                 <div class="features-small mt-4 wow fadeIn">
 
-                    <div class="row col col-lg-12">
+                    {% comment %} <div class="card-deck"> {% endcomment %}
+                    <div class="row">
 
                     {% for hotel in Hotels %}
 
-                        <div class="col col-lg-4 col-md-6 col-sm-12 mt-4">
+                        <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
                             <div class="card col-12">
                                 <!-- Image -->
-                                <div class="imgWrapper">
-                                    {% comment %} <img src="img_snow_wide.jpg" alt="Snow" style="width:100%;"> {% endcomment %}
-                                    <img class="card-img-top" src="{{ MEDIA_URL }}{{ hotel.image }}" alt="{{ hotel.name }}" width="100%">
+                                <div class="imgWrapper card-img-top">
+                                    <img class="card-img-top cardImage" src="{{ MEDIA_URL }}{{ hotel.image }}" alt="{{ hotel.name }}">
                                     <div class="centered">
                                         <p class="imgText">{{ hotel.country }} - {{ hotel.city }}</p>
                                     </div>
-                                </div> 
+                                </div>
+
                                 <!-- Body -->
                                 <div class="card-body">
                                     <h5 class="card-title alignMid">{{ hotel.name }}</h5>
                                     <p class="card-text alignRight">{{ hotel.summary }}</p>
                                     {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
                                 </div>
+
                             </div>
                         </div>
 
                     {% endfor %}
+
 
                     </div> 
 
@@ -100,44 +102,50 @@
 
             </div>
 
+        </div>
+    </main>
 
-            <div class="view parallax" id="demo">
-                <div class="container">
+    <!--Bottom parallax -->
+    <div class="view parallax mt-5" id="demo">
+        <div class="container mt-5">
 
-                    <table class="mt-5">
-                        <tr>
-                            <td>
-                                <h2 class="introContent">
+            <div>
+                <div>
+                    <form>
+                        <div class="form-row">
+                            <div>
+                                <h3 class="introContent">
                                     {% blocktrans %}
                                         کجا&nbsp;؟
                                     {% endblocktrans %}
-                                </h2>
-                            </td>
-                            <td><h4><input class="transparentInput" type="text" placeholder="{% trans 'کشور' %}" /></h4></td>
-                            <td></td>
-                            <td><h4><input class="transparentInput" type="text" placeholder="{% trans 'شهر' %}" /></h4></td>
-                        </tr>
-                        <tr>
-                            <td><h3 class="introContent">{% trans 'یا' %}</h3></td>
-                            <td><h4><input class="transparentInput" type="text" placeholder="{% trans 'هتل' %}" /></h4></td>
-                        </tr>
-                        <tr>
-                            <td></td>
-                            <td class="introIconStyle"><img src="{% static 'img/train.png' %}" height="100" /></td>
-                            <td class="introIconStyle"><img src="{% static 'img/plane.png' %}" height="100" /></td>
-                            <td></td>
-                            <td class="introIconStyle"><img src="{% static 'img/boat.png' %}" height="100" /></td>
-                        </tr>
-                    </table> 
+                                </h3>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'کشور' %}">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'شهر' %}">
+                            </div>
+                            <div>
+                                <h3 class="introContent">{% trans 'یا' %}</h3>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'هتل' %}">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">جستجو</button>
+                    </form>
+                </div>
 
+                <div class="row">
+                    <div class="col introIconStyle"><img src="{% static 'img/train1.png' %}" height="100" /></div>
+                    <div class="col introIconStyle"><img src="{% static 'img/plane1.png' %}" height="100" /></div>
+                    <div class="col introIconStyle"><img src="{% static 'img/boat1.png' %}" height="100" /></div>
                 </div>
             </div>
 
-            
         </div>
-    </main>
-    <!--Main layout-->
-
+    </div>
 
 {% endblock main_content %}
 

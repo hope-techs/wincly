@@ -1,0 +1,103 @@
+// Your custom styles
+
+/* Required height of parents of the Full Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+  height: 100%; }
+
+html,
+body {
+  direction: rtl;
+  text-align: right;
+}
+
+
+/* Full Page Carousel itself*/
+.carousel {
+  height: 100%; }
+  .carousel .carousel-inner {
+    height: 100%; }
+    .carousel .carousel-inner .carousel-item,
+    .carousel .carousel-inner .active {
+      height: 100%; }
+
+#mainCarousel {
+  direction: ltr;
+}
+
+#demo {
+  min-height: 300px;
+  text-align: center;
+}
+
+.carouselItem {
+  direction: rtl;
+}
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.2); }
+
+.top-nav-collapse {
+  background-color: #1C2331; }
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331; } }
+
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #1C2331; }
+
+
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: rgb(110, 110, 110); /* old IE */
+  background-color: rgb(110, 110, 110); /* Modern Browsers */
+}
+
+#contactForm {
+  direction: rtl;
+  text-align: right;
+}
+
+#back2Top {
+  border-radius: 50%;
+  position: fixed;
+  right: 10px;
+  bottom: 20px;
+  z-index: 99;
+  overflow: hidden;
+  display: none;
+  text-decoration: none;
+}
+
+
+.alignRight {
+  text-align: right;
+}
+
+.alignMid {
+  text-align: center;
+  align-items: center;
+}
+
+#intro {
+      height: 100vh;
+      /* The image used */
+      background-image: url("https://mdbootstrap.com/img/Photos/Others/img%20%2844%29.jpg");
+
+      /* Set a specific height */
+      min-height: 500px; 
+  
+      /* Create the parallax scrolling effect */
+      background-attachment: fixed;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+}
+

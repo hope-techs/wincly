@@ -8,13 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block title %}Wincly{% endblock title %}</title>
-  <link rel="icon" href="{% static 'img/favicons/favicon.ico' %}">
+  <link rel="icon" href="{% static 'img/favicons/logo-white.png' %}">
 
   {% block css %}
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous">
+    {% comment %} <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> {% endcomment %}
+    {% comment %} <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.2/css/all.css" integrity="sha384-/rXc/GQVaYpyDdyxK+ecHPVYJSN9bmVFBvjA/9eOB+pb3F2w2N6fc5qB9Ew5yIns" crossorigin="anonymous"> {% endcomment %}
+    <link rel="stylesheet" href="{% static 'fonts/fontawesome-free-5.5.0-web/css/all.css' %}" />
+    
     {% compress css %}
 
       <!-- Bootstrap core CSS -->
@@ -70,7 +72,7 @@
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
         <!-- Left -->
-        <ul class="navbar-nav">
+        <ul class="navbar-nav" id="leftLinks">
           <li class="nav-item active">
             <a class="nav-link" href="#demo">
               {% trans 'هتل ها' %}
@@ -96,8 +98,14 @@
 
       <!-- Brand -->
       <a class="navbar-brand fontBold" href="#">
-        <strong>The Wincly Hotels Magazine</strong>
-        <img src="{% static 'img/logo-white.png' %}" height="50" />
+        <div id="BrandStyle">
+          <img src="{% static 'img/logo-white.png' %}" height="70" />
+        </div>
+        <div style="float: left">
+          <strong id="bm">The Wincly Hotels Magazine</strong>
+          <br />
+          <span id="smTxt">By W-incorporation</span>
+        </div>
       </a>
 
     </div>
@@ -105,7 +113,9 @@
   <!-- Navbar -->
 
   <!-- Back to top -->
-  <a class="btn-floating btn-lg btn-info" id="back2Top" title="Back to top" href="#"><i class="fas fa-arrow-up"></i></a>
+  <a class="btn-floating blue-gradient" id="back2Top" title="Back to top" href="#">
+    <img src="{% static '/img/ExpandLess.png' %}" width="50"/>
+  </a>
 
   {% block main_content %}
 
@@ -168,14 +178,23 @@
     <!-- Social icons -->
 
     <!--Copyright-->
-    <div class="footer-copyright py-3" style="direction: ltr;">
-      © 
-      2018 
-      {% blocktrans %}
-      Wincly Magazine
-      All Rights Reserved
-      {% endblocktrans %}
-      .
+    <div class="row footer-copyright py-3">
+      <div class="col">
+        <p class="alignMid">
+          Developed By <strong>SMBH</strong>
+        </p>
+      </div>
+      <div class="col">
+        <p class="alignMid" style="direction: ltr;">
+          © 
+          2018 
+          {% blocktrans %}
+          Wincly Magazine
+          All Rights Reserved
+          {% endblocktrans %}
+          .
+        </p>
+      </div>
     </div>
     <!--/.Copyright-->
 

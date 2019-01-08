@@ -1,0 +1,148 @@
+/* Required height of parents of the Full Page Carousel for proper displaying carousel itself */
+html,
+body,
+.view {
+  height: 100%;
+}
+
+html,
+body {
+  direction: rtl;
+  text-align: right;
+  font-family: 'IranSans';
+}
+
+#demo {
+  min-height: 300px;
+  text-align: center;
+}
+
+/* Navbar animation */
+.navbar {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.top-nav-collapse {
+  background-color: #1C2331;
+}
+
+/* Adding color to the Navbar on mobile */
+@media only screen and (max-width: 768px) {
+  .navbar {
+    background-color: #1C2331;
+  }
+}
+/* Footer color for sake of consistency with Navbar */
+.page-footer {
+  background-color: #1C2331;
+  overflow: hidden;
+}
+
+hr {
+  border: none;
+  height: 1px;
+  /* Set the hr color */
+  color: #6e6e6e;
+  /* old IE */
+  background-color: #6e6e6e;
+  /* Modern Browsers */
+}
+
+#back2Top {
+  /* padding: 1%; */
+  /* padding-top: 1%;
+  padding-bottom: 1%;
+  padding-right: 1.3%;
+  padding-left: 1.3%; */
+  border-radius: 50%;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  z-index: 99;
+  overflow: hidden;
+  display: none;
+  text-decoration: none;
+}
+#back2Top i {
+  vertical-align: middle;
+  align-items: center;
+}
+
+.alignRight {
+  text-align: right;
+}
+
+.alignMid {
+  text-align: center;
+  align-items: center;
+}
+
+/* Font */
+@font-face {
+  font-family: 'IranSans';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/iransans/eot/IRANSansWeb.eot') format('eot'), url('../fonts/iransans/ttf/IRANSansWeb.ttf') format('truetype'), url('../fonts/iransans/woff/IRANSansWeb.woff') format('woff'), url('../fonts/iransans/woff2/IRANSansWeb.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'IranSansBold';
+  font-style: normal;
+  font-weight: 700;
+  src: url('../fonts/iransans/eot/IRANSansWeb_Bold.eot') format('eot'), url('../fonts/iransans/ttf/IRANSansWeb_Bold.ttf') format('truetype'), url('../fonts/iransans/woff/IRANSansWeb_Bold.woff') format('woff'), url('../fonts/iransans/woff2/IRANSansWeb_Bold.woff2') format('woff2');
+}
+
+.fontBold {
+  font-family: 'IranSansBold';
+}
+
+@font-face {
+  font-family: 'CAP';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/INSPECTIONXPERTGDTNOFRAMES.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'Righteous';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Righteous-Regular.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: 'RalewayLight';
+  font-style: normal;
+  font-weight: 400;
+  src: url('../fonts/Raleway-Light.ttf') format('truetype');
+}
+
+
+#bm {
+  font-family: 'Righteous';
+  font-size: 1.7rem;
+}
+
+#smTxt {
+  font-family: 'RalewayLight';
+  font-size: 1rem;
+}
+
+.navbar-brand {
+  text-align: left;
+}
+
+#leftLinks {
+  padding-right: 0px!important;
+}
+
+#BrandStyle {
+  float: left; 
+  /* padding-right: .001%; */
+}
+
+.fLeft {
+  float: left;
+}
+
+

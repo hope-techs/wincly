@@ -7,7 +7,6 @@ from app.utils.Unique_Slug_Generator import unique_slug_generator
 from django.utils.translation import ugettext_lazy as _
 
 
-
 User = settings.AUTH_USER_MODEL
 
 
@@ -16,6 +15,54 @@ def upload_path(self, filename):
     # file will be uploaded to MEDIA_ROOT/year-month-day/UserName/FileName
     # return ('Uploads/{0}/{1}/{2}'.format(strftime('%Y-%m-%d'), self.author, filename))
     return ('{0}/{1}'.format(self.user, filename))
+
+
+
+class HotelQuerySet(models.query.QuerySet):
+    def search(self, query):
+        if query:
+            query = query.strip()
+            qs = self.filter(
+                                Q(name__icontains=query) |
+                                Q(country__icontains=query) |
+                                Q(city__icontains=query) |
+                                Q(content__icontains=query) |
+                                Q(summary__icontains=query) |
+                                Q(user__username__icontains=query) |
+                                Q(slug__icontains=query) |
+                                Q(tags__name__icontains=query)
+                            ).distinct()
+            return qs
+        return self
+
+
+# Hotel Model Manager
+class HoteManager(models.Manager):
+    def get_queryset(self):
+        return HotelQuerySet(self.model, using=self._db)
+
+    # Active Hotels
+    def active(self, *args, **kwargs):
+        # __lte Less than & __gte Greater than
+        qs = super(HoteManager, self).filter(draft=False, publish__lte=timezone.now())
+        return qs
+
+    # Search
+    def search(self, query):
+        # if query:
+        #     # qs = self.get_queryset().filter(
+        #     qs = self.active().filter(
+        #                                 Q(title__icontains=query) |
+        #                                 Q(content__icontains=query) |
+        #                                 Q(author__first_name__icontains=query) |
+        #                                 Q(author__last_name__icontains=query) |
+        #                                 Q(tags__name__icontains=query)
+        #                             ).distinct()
+        #     return qs
+        # return None
+        return self.get_queryset().search(query)
+
+
 
 
 class Hotel(models.Model):
@@ -35,6 +82,7 @@ class Hotel(models.Model):
     slug = models.SlugField(allow_unicode = True, unique = True, verbose_name = _('Slug'))
     tags = TaggableManager(blank = True, verbose_name = _('Tags'))
 
+    objects = HoteManager()
 
     def was_published_recently(self):
         if self.publish:
