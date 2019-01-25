@@ -9,7 +9,7 @@ DEBUG = True
 # SECRET_KEY = env('DJANGO_SECRET_KEY')
 SECRET_KEY = env('DJANGO_SECRET_KEY', default='1rY51RfIkL39xggUbFyuFYzrhAxxMZxvaGheKeysSuSmm7dEH2gYVTkkx7ScOssw')
 # https://docs.djangoproject.com/en/dev/ref/settings/#allowed-hosts
-ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['.wincly.com', '164.132.81.148'])
+ALLOWED_HOSTS = env.list('DJANGO_ALLOWED_HOSTS', default=['.wincly.com', '87.236.209.213'])
 
 # DATABASES
 # ------------------------------------------------------------------------------
