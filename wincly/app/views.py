@@ -36,7 +36,11 @@ class HotelView(generic.ListView, TagMixin):
     paginate_by = 12
 
     def get_queryset(self):
-        queryset = Hotel.objects.search()
+        req = self.request
+        query = req.GET.get('q', None)
+        queryset = Hotel.objects.all()
+        if query is not None:
+            queryset = Hotel.objects.search(query)
         return queryset
 
 

@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models import Q
 from django.conf import settings
 from taggit.managers import TaggableManager
 from django.utils import timezone

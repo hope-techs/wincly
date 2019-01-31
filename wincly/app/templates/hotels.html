@@ -30,7 +30,7 @@
                                     {% endblocktrans %}
                                 </h3>
                             </div>
-                            <div class="col">
+                            {% comment %} <div class="col">
                                 <input type="text" class="form-control transparentInput" placeholder="{% trans 'کشور' %}">
                             </div>
                             <div class="col">
@@ -41,6 +41,9 @@
                             </div>
                             <div class="col">
                                 <input type="text" class="form-control transparentInput" placeholder="{% trans 'هتل' %}">
+                            </div> {% endcomment %}
+                            <div class="col">
+                                <input type="text" name="q" class="form-control transparentInput" placeholder="{% trans 'کشور؟ شهر؟ هتل؟' %}">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">جستجو</button>
