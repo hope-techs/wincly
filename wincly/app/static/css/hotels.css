@@ -1,0 +1,67 @@
+
+#searchSection {
+    /* The image used */
+    background-image: url("../img/bg_map3.jpg");
+    /* Set a specific height */
+    min-height: 600px;
+    /* Create the parallax scrolling effect */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 10%;
+  }
+
+.centeralize{
+    text-align: center;
+}
+
+.transparentInput {
+    background-color: transparent;
+    border-bottom: .5px solid grey;
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    /* border-radius: 25px; */
+    color: grey;
+    /* padding: 3%;
+    margin: 1% 3% 3% 3%; */
+}
+
+/* Container holding the image and the text */
+.imgWrapper {
+    position: relative;
+    text-align: center;
+    color: white; 
+  }
+
+.imgWrapper .imgText {
+color: black;
+background-color: rgb(24, 201, 255);
+border-radius: 10px;
+padding: 5px;
+opacity:0;
+transition: opacity .5s linear;
+}
+
+.imgWrapper:hover .imgText {
+opacity: 1;
+}
+
+.cardImage {
+transition: filter .4s linear;
+border-radius: 5px;
+}
+.cardImage:hover {
+transition: filter .4s linear;
+filter: blur(3px);
+}
+
+/* Centered text */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  } 
+

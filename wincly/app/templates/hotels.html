@@ -1,0 +1,111 @@
+{% extends "base.html" %}
+
+{% load static i18n %}
+
+
+{% block title %}
+    {{ block.super }} | Home
+{% endblock title %}
+
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/hotels.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block main_content %}
+
+
+    <!--Top parallax -->
+    <div class="parallax" id="searchSection">
+        <div class="container">
+
+            <div>
+                <div>
+                    <form class="centeralize">
+                        <div class="form-row centeralize">
+                            <div>
+                                <h3 class="introContent">
+                                    {% blocktrans %}
+                                        کجا&nbsp;؟
+                                    {% endblocktrans %}
+                                </h3>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'کشور' %}">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'شهر' %}">
+                            </div>
+                            <div>
+                                <h3 class="introContent">{% trans 'یا' %}</h3>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'هتل' %}">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">جستجو</button>
+                    </form>
+                </div>
+                <br />
+                <div class="row centeralize">
+                    <div class="col introIconStyle"><img src="{% static 'img/train1.png' %}" height="100" /></div>
+                    <div class="col introIconStyle"><img src="{% static 'img/plane1.png' %}" height="100" /></div>
+                    <div class="col introIconStyle"><img src="{% static 'img/boat1.png' %}" height="100" /></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!--Main layout-->
+    <main>
+        <div>
+            <!-- Main info -->
+
+            <div class="container" id="hotelList">
+
+                <!-- Hotel List -->
+                <div class="features-small mt-4 wow fadeIn">
+
+                    {% comment %} <div class="card-deck"> {% endcomment %}
+                    <div class="row">
+
+                    {% for hotel in Hotels %}
+
+                        <div class="col-lg-4 col-md-6 col-sm-12 mt-4">
+                            <div class="card col-12">
+                                <!-- Image -->
+                                <div class="imgWrapper card-img-top">
+                                    <img class="card-img-top cardImage" src="{{ MEDIA_URL }}{{ hotel.image }}" alt="{{ hotel.name }}">
+                                    <div class="centered">
+                                        <p class="imgText">{{ hotel.country }} - {{ hotel.city }}</p>
+                                    </div>
+                                </div>
+
+                                <!-- Body -->
+                                <div class="card-body">
+                                    <h5 class="card-title alignMid">{{ hotel.name }}</h5>
+                                    <p class="card-text alignRight">{{ hotel.summary }}</p>
+                                    {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
+                                </div>
+
+                            </div>
+                        </div>
+
+                    {% endfor %}
+
+
+                    </div> 
+
+                </div>
+
+            </div>
+
+        </div>
+    </main>
+
+    <br />
+
+{% endblock main_content %}
+
+
