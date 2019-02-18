@@ -106,46 +106,7 @@
     </main>
 
     <!--Bottom parallax -->
-    <div class="view parallax mt-5" id="demo">
-        <div class="container mt-5">
-
-            <div>
-                <div>
-                    <form>
-                        <div class="form-row">
-                            <div>
-                                <h3 class="introContent">
-                                    {% blocktrans %}
-                                        کجا&nbsp;؟
-                                    {% endblocktrans %}
-                                </h3>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'کشور' %}">
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'شهر' %}">
-                            </div>
-                            <div>
-                                <h3 class="introContent">{% trans 'یا' %}</h3>
-                            </div>
-                            <div class="col">
-                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'هتل' %}">
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary">جستجو</button>
-                    </form>
-                </div>
-
-                <div class="row">
-                    <div class="col introIconStyle"><img src="{% static 'img/train1.png' %}" height="100" /></div>
-                    <div class="col introIconStyle"><img src="{% static 'img/plane1.png' %}" height="100" /></div>
-                    <div class="col introIconStyle"><img src="{% static 'img/boat1.png' %}" height="100" /></div>
-                </div>
-            </div>
-
-        </div>
-    </div>
+    {% include "search.html" %}
 
 {% endblock main_content %}
 

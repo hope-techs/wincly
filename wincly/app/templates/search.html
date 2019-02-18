@@ -1,0 +1,47 @@
+    {% load static i18n %}
+    
+    
+    
+    <!-- parallax -->
+    <div class="parallax" id="searchSection">
+        <div class="container">
+
+            <div>
+                <div>
+                    <form class="centeralize">
+                        <div class="form-row">
+                            <div>
+                                <h3 class="introContent">
+                                    {% blocktrans %}
+                                        کجا&nbsp;؟
+                                    {% endblocktrans %}
+                                </h3>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'کشور' %}">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'شهر' %}">
+                            </div>
+                            <div>
+                                <h3 class="introContent">{% trans 'یا' %}</h3>
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control transparentInput" placeholder="{% trans 'هتل' %}">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary">جستجو</button>
+                    </form>
+                </div>
+                <br />
+                <div class="row centeralize">
+                    <div class="col introIconStyle"><img src="{% static 'img/train.png' %}" height="100" /></div>
+                    <div class="col introIconStyle"><img src="{% static 'img/plane.png' %}" height="100" /></div>
+                    <div class="col introIconStyle"><img src="{% static 'img/boat.png' %}" height="100" /></div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
