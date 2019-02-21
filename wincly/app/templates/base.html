@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>{% block title %}Wincly{% endblock title %}</title>
-  <link rel="icon" href="{% static 'img/favicons/logo-white.png' %}">
+  <link rel="icon" href="{% static 'img/favicons/Logo-black.png' %}">
 
   {% block css %}
 
@@ -102,14 +102,14 @@
       </div>
 
       <!-- Brand -->
-      <a class="navbar-brand fontBold" href="#">
+      <a class="navbar-brand fontBold" href="{% url 'App:home' %}">
         <div id="BrandStyle">
           <img src="{% static 'img/logo-white.png' %}" height="70" />
         </div>
-        <div style="float: left">
+        <div class="navContent">
           <strong id="bm">The Wincly Hotels Magazine</strong>
           <br />
-          <span id="smTxt">By W-incorporation</span>
+          <span id="smTxt">By W-Incorporation</span>
         </div>
       </a>
 
@@ -148,35 +148,12 @@
 
     <!-- Social icons -->
     <div class="p-4">
-      <a href="https://www.facebook.com/" target="_blank">
-        <i class="fab fa-facebook fa-lg mr-3" style="color: #3b5999;"></i>
-      </a>
 
-      <a href="https://twitter.com/" target="_blank">
-        <i class="fab fa-twitter fa-lg mr-3" style="color: #55acee;"></i>
-      </a>
-
-      <a href="https://www.youtube.com/" target="_blank">
-        <i class="fab fa-youtube fa-lg mr-3" style="color: #cd201f;"></i>
-      </a>
-
-      <a href="https://plus.google.com/" target="_blank">
-        <i class="fab fa-google-plus fa-lg mr-3" style="color: #dd4b39;"></i>
-      </a>
-
-      <a href="https://telegram.org/" target="_blank">
+      <a href="https://telegram.me/W_Inc" target="_blank">
         <i class="fab fa-telegram-plane fa-lg mr-3" style="color: #0084ff;"></i>
       </a>
 
-      <a href="https://pinterest.com/" target="_blank">
-        <i class="fab fa-pinterest fa-lg mr-3" style="color: #bd081c;"></i>
-      </a>
-
-      <a href="https://github.com/" target="_blank">
-        <i class="fab fa-github fa-lg mr-3" style="color: black;"></i>
-      </a>
-
-      <a href="https://www.instagram.com/" target="_blank">
+      <a href="https://www.instagram.com/winclymag" target="_blank">
         <i class="fab fa-instagram fa-lg mr-3" style="color: #e4405f;"></i>
       </a>
     </div>
@@ -195,9 +172,8 @@
           2018 
           {% blocktrans %}
           Wincly Magazine
-          All Rights Reserved
+          All Rights Reserved.
           {% endblocktrans %}
-          .
         </p>
       </div>
     </div>

@@ -148,7 +148,7 @@ hr {
 
 #searchSection {
   /* The image used */
-  background-image: url("../img/bg_map3.jpg");
+  background-image: url("../img/plane2.jpg");
   /* background-image: url("{% static 'img/bg_map3.jpg' %}"); */
   /* Set a specific height */
   min-height: 600px;
@@ -179,5 +179,10 @@ hr {
 .tst {
   direction: rtl;
   text-align: right;
+}
+
+.navContent {
+  float: left;
+  margin-left: 1%;
 }
 
