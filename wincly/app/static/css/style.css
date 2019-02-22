@@ -117,6 +117,11 @@ hr {
   src: url('../fonts/Raleway-Light.ttf') format('truetype');
 }
 
+#navBrand {
+  margin-left: 2%;
+  margin-right: 5%;
+  /* margin: 5%; */
+}
 
 #bm {
   font-family: 'Righteous';
@@ -134,11 +139,6 @@ hr {
 
 #leftLinks {
   padding-right: 0px!important;
-}
-
-#BrandStyle {
-  float: left; 
-  /* padding-right: .001%; */
 }
 
 .fLeft {
@@ -181,8 +181,4 @@ hr {
   text-align: right;
 }
 
-.navContent {
-  float: left;
-  margin-left: 1%;
-}
 

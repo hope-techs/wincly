@@ -58,64 +58,117 @@
 
 <body>
 
-  <!-- Navbar -->
+  {% get_current_language as LANGUAGE_CODE %}
+  <!-- Fa -->
+  {% if LANGUAGE_CODE == "fa" %}
+    <style type="text/css">
+      html,
+      body {
+        direction: rtl;
+        text-align: right;
+        font-family: 'IranSans';
+      }
+    </style>
+  <!-- Other -->
+  {% else %}
+      <style type="text/css">
+        html,
+        body {
+          direction: ltr;
+          text-align: left;
+          font-family: 'IranSans';
+        }
+      </style>
+  {% endif %}
+
+  <!--Navbar -->
   <nav class="navbar fixed-top navbar-expand-lg navbar-dark scrolling-navbar" id="navBar">
-    <div class="container">
-
-      <!-- Collapse -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-        aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <!-- Links -->
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
-        <!-- Left -->
-        <ul class="navbar-nav" id="leftLinks">
-          <li class="nav-item active">
-            <a class="nav-link" href="{% url 'App:home' %}">
-              {% trans 'خانه' %}
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="{% url 'App:hotels' %}">
-              {% trans 'هتل ها' %}
-            </a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#about">{% trans 'وینکلی چیست' %}</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link" href="#contactForm">{% trans 'تماس با ما' %}</a>              
-          </li>
-
-        </ul>
-
-        <!-- Right -->
-        <ul class="navbar-nav nav-flex-icons  mr-auto">
-          <li class="nav-item">
-          </li>
-        </ul>
-
+    {% comment %} <a class="navbar-brand" href="{% url 'App:home' %}">Navbar</a> {% endcomment %}
+    <!-- Brand -->
+    <a class="navbar-brand fontBold" href="{% url 'App:home' %}" id="navBrand">
+      <div class="row">
+        <img src="{% static 'img/logo-white.png' %}" width="50" />
       </div>
+    </a>
+    <!-- Collapse -->
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent-333"
+      aria-controls="navbarSupportedContent-333" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent-333">
 
       <!-- Brand -->
-      <a class="navbar-brand fontBold" href="{% url 'App:home' %}">
-        <div id="BrandStyle">
-          <img src="{% static 'img/logo-white.png' %}" height="70" />
-        </div>
-        <div class="navContent">
-          <strong id="bm">The Wincly Hotels Magazine</strong>
-          <br />
-          <span id="smTxt">By W-Incorporation</span>
+      <a class="navbar-brand fontBold" href="{% url 'App:home' %}" id="navBrand">
+        <div class="row">
+          <!-- <div>
+            <img src="{% static 'img/logo-white.png' %}" width="50" />
+          </div> -->
+          <div>
+            <strong id="bm">The Wincly Hotels Magazine</strong>
+            <br />
+            <span id="smTxt">By W-Incorporation</span>
+          </div>
         </div>
       </a>
+    
+      <!-- Left links -->
+      <ul class="navbar-nav mr-auto">
+        <!-- Home -->
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'App:home' %}">{% trans 'Home' %}
+          </a>
+        </li>
+        <!-- Hotels -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App:hotels' %}">{% trans 'Hotels' %}</a>
+        </li>
+        <!-- About -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App:hotels' %}">{% trans 'About' %}</a>
+        </li>
+        <!-- Contact Us -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'App:hotels' %}">{% trans 'Contact us' %}</a>
+        </li>
 
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">Dropdown
+          </a>
+          <div class="dropdown-menu dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li>  -->
+
+      </ul>
+      <!-- Right links -->
+      <ul class="navbar-nav ml-auto nav-flex-icons">
+        <!-- Social -->
+        <!-- <li class="nav-item">
+          <a class="nav-link waves-effect waves-light">
+            <i class="fab fa-twitter"></i>
+          </a>
+        </li> -->
+        <!-- Profile -->
+        <!-- <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown" aria-haspopup="true"
+            aria-expanded="false">
+            <i class="fas fa-user"></i>
+          </a>
+          <div class="dropdown-menu dropdown-menu-right dropdown-default" aria-labelledby="navbarDropdownMenuLink-333">
+            <a class="dropdown-item" href="#">Action</a>
+            <a class="dropdown-item" href="#">Another action</a>
+            <a class="dropdown-item" href="#">Something else here</a>
+          </div>
+        </li> -->
+      </ul>
     </div>
   </nav>
-  <!-- Navbar -->
+  <!--/.Navbar -->
+
 
   <!-- Back to top -->
   <a class="btn-floating blue-gradient" id="back2Top" title="Back to top" href="#">
