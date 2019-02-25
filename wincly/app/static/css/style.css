@@ -82,14 +82,16 @@ hr {
   font-family: 'IranSans';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/iransans/eot/IRANSansWeb.eot') format('eot'), url('../fonts/iransans/ttf/IRANSansWeb.ttf') format('truetype'), url('../fonts/iransans/woff/IRANSansWeb.woff') format('woff'), url('../fonts/iransans/woff2/IRANSansWeb.woff2') format('woff2');
+  /* src: url('../fonts/iransans/eot/IRANSansWeb.eot') format('eot'), url('../fonts/iransans/ttf/IRANSansWeb.ttf') format('truetype'), url('../fonts/iransans/woff/IRANSansWeb.woff') format('woff'), url('../fonts/iransans/woff2/IRANSansWeb.woff2') format('woff2'); */
+  src: url('/static/fonts/iransans/eot/IRANSansWeb.eot') format('eot'), url('/static/fonts/iransans/ttf/IRANSansWeb.ttf') format('truetype'), url('/static/fonts/iransans/woff/IRANSansWeb.woff') format('woff'), url('/static/fonts/iransans/woff2/IRANSansWeb.woff2') format('woff2');
 }
 
 @font-face {
   font-family: 'IranSansBold';
   font-style: normal;
   font-weight: 700;
-  src: url('../fonts/iransans/eot/IRANSansWeb_Bold.eot') format('eot'), url('../fonts/iransans/ttf/IRANSansWeb_Bold.ttf') format('truetype'), url('../fonts/iransans/woff/IRANSansWeb_Bold.woff') format('woff'), url('../fonts/iransans/woff2/IRANSansWeb_Bold.woff2') format('woff2');
+  /* src: url('../fonts/iransans/eot/IRANSansWeb_Bold.eot') format('eot'), url('../fonts/iransans/ttf/IRANSansWeb_Bold.ttf') format('truetype'), url('../fonts/iransans/woff/IRANSansWeb_Bold.woff') format('woff'), url('../fonts/iransans/woff2/IRANSansWeb_Bold.woff2') format('woff2'); */
+  src: url('/static/fonts/iransans/eot/IRANSansWeb_Bold.eot') format('eot'), url('/static/fonts/iransans/ttf/IRANSansWeb_Bold.ttf') format('truetype'), url('/static/fonts/iransans/woff/IRANSansWeb_Bold.woff') format('woff'), url('/static/fonts/iransans/woff2/IRANSansWeb_Bold.woff2') format('woff2');
 }
 
 .fontBold {
@@ -100,21 +102,24 @@ hr {
   font-family: 'CAP';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/INSPECTIONXPERTGDTNOFRAMES.ttf') format('truetype');
+  /* src: url('../fonts/INSPECTIONXPERTGDTNOFRAMES.ttf') format('truetype'); */
+  src: url('/static/fonts/INSPECTIONXPERTGDTNOFRAMES.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'Righteous';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Righteous-Regular.ttf') format('truetype');
+  /* src: url('../fonts/Righteous-Regular.ttf') format('truetype'); */
+  src: url('/static/fonts/Righteous-Regular.ttf') format('truetype');
 }
 
 @font-face {
   font-family: 'RalewayLight';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/Raleway-Light.ttf') format('truetype');
+  /* src: url('../fonts/Raleway-Light.ttf') format('truetype'); */
+  src: url('/static/fonts/Raleway-Light.ttf') format('truetype');
 }
 
 #navBrand {
@@ -148,8 +153,8 @@ hr {
 
 #searchSection {
   /* The image used */
-  background-image: url("../img/plane2.jpg");
-  /* background-image: url("{% static 'img/bg_map3.jpg' %}"); */
+  /* background-image: url("../img/plane2.jpg"); */
+  background-image: url("/static/img/plane2.jpg");
   /* Set a specific height */
   min-height: 600px;
   /* Create the parallax scrolling effect */
