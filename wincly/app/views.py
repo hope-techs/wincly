@@ -39,42 +39,33 @@ class HotelView(generic.ListView, TagMixin):
 
     def get_queryset(self):
         req = self.request
-        query = req.GET.get('q', None)
         country_query = req.GET.get('country', None)
         city_query = req.GET.get('city', None)
         hotel_query = req.GET.get('hotel', None)
         queryset = Hotel.objects.all()
-        cq ,cq2, hq = queryset, queryset, queryset
         # Country
-        if country_query is not None:
-            cq = Hotel.objects.filter(
-                    Q(country__icontains=query) |
-                    Q(tags__name__icontains=query)
+        if country_query :
+            queryset = queryset.filter(
+                    Q(country__icontains=country_query) |
+                    Q(tags__name__icontains=country_query)
                 ).distinct()
-        # return cq
         # City
-        if city_query is not None:
-            cq2 = Hotel.objects.filter(
-                    Q(city__icontains=query) |
-                    Q(tags__name__icontains=query)
+        if city_query :
+            queryset = queryset.filter(
+                    Q(city__icontains=city_query) |
+                    Q(tags__name__icontains=city_query)
                 ).distinct()
-        # return cq2
         # Hotel
-        if hotel_query is not None:
-            hq = Hotel.objects.filter(
-                    Q(name__icontains=query) |
-                    Q(slug__icontains=query) |
-                    Q(tags__name__icontains=query)
+        if hotel_query :
+            queryset = queryset.filter(
+                    Q(name__icontains=hotel_query) |
+                    Q(slug__icontains=hotel_query) |
+                    Q(tags__name__icontains=hotel_query)
                 ).distinct()
-        # return hq
-        if query is not None:
-            queryset = Hotel.objects.search(query)
-        # return queryset
+
 
         query_chain = chain(
-            cq,
-            cq2,
-            hq
+            queryset
         )
         qs = sorted(query_chain, key=lambda instance: instance.pk,
             reverse=True)

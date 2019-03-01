@@ -8,8 +8,7 @@
 
             <div>
                 <div>
-                    <form class="centeralize">
-                        {% csrf_token %}
+                    <form class="centeralize" method="GET">
                         <div class="form-row">
                             {% comment %} <div>
                                 <h3 class="introContent">
@@ -20,19 +19,19 @@
                             </div> {% endcomment %}
                             
                             <div class="col md-form">
-                                <input type="text" id="counry" class="form-control">
-                                <label for="counry">{% trans 'کشور' %}</label>
+                                <input type="text" id="counry" name="counry" class="form-control">
+                                <label for="counry">{% trans 'Country' %}</label>
                             </div>
                             <div class="col md-form">
-                                <input type="text" id="city" class="form-control">
-                                <label for="city">{% trans 'شهر' %}</label>
+                                <input type="text" id="city" name="city" class="form-control">
+                                <label for="city">{% trans 'City' %}</label>
                             </div>
                             {% comment %} <div>
                                 <h3 class="introContent">{% trans 'یا' %}</h3>
                             </div> {% endcomment %}
                             <div class="col md-form">
-                                <input type="text" id="hotel" class="form-control">
-                                <label for="hotel">{% trans 'هتل' %}</label>
+                                <input type="text" id="hotel" name="hotel" class="form-control">
+                                <label for="hotel">{% trans 'Hotel' %}</label>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">جستجو</button>
