@@ -49,14 +49,40 @@ $(document).ready(function() {
     });
 
     // object-fit polyfill run
-    objectFitImages();
+    // objectFitImages();
 
     /* init Jarallax */
-    jarallax(document.querySelectorAll('.jarallax'));
+    // jarallax(document.querySelectorAll('.jarallax'));
 
-    jarallax(document.querySelectorAll('.jarallax-keep-img'), {
-        keepImg: true,
-    });
+    // jarallax(document.querySelectorAll('.jarallax-keep-img'), {
+        // keepImg: true,
+    // });
+
+    activeTab();
 
 });
  /*Scroll to top when arrow up clicked END*/
+
+ 
+
+
+
+function activeTab() {
+    var p = window.location.pathname
+    var items = $("nav li")
+    items.removeClass("active");
+    for (let i = 0; i < items.length; i++) {
+        var id = items[i].id;
+        if (p.includes(id)) {
+            $("#" + id).addClass("active");
+            break;
+        }
+        else {
+            // items[0].addClass("active");
+            console.log(items[0]);
+        }
+    }
+}
+
+
+

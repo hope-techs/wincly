@@ -12,6 +12,10 @@
     <link href="{% static 'css/home.css' %}" rel="stylesheet">
 {% endblock css %}
 
+{% block javascript %}
+    <script src="{% static 'js/home.js' %}"></script>
+{% endblock javascript %}
+
 {% block main_content %}
 
     <!-- Top Parallax -->
@@ -43,9 +47,10 @@
                             <br />
 
                         <div>
-                            <a class="btn-floating purple-gradient"  href="#demo" id="BtnTo">
-                                <img src="{% static '/img/chevron-arrow-down.png' %}" width="50" />
+                            <a class="btn-floating"  href="#demo" id="BtnTo">
+                                <img src="{% static '/img/down-arrow.png' %}" width="50" />
                             </a>
+
                         </div>
 
                     </div>

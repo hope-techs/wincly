@@ -46,14 +46,6 @@
     {% endcompress %}
   {% endblock %}
 
-  
-    {% block javascript %}
-
-      {% compress js %}
-      {% endcompress %}
-
-    {% endblock javascript %}
-
 </head>
 
 <body>
@@ -115,20 +107,20 @@
       <!-- Left links -->
       <ul class="navbar-nav mr-auto">
         <!-- Home -->
-        <li class="nav-item active">
+        <li class="nav-item" id="Home">
           <a class="nav-link" href="{% url 'App:home' %}">{% trans 'Home' %}
           </a>
         </li>
         <!-- Hotels -->
-        <li class="nav-item">
+        <li class="nav-item" id="Hotels">
           <a class="nav-link" href="{% url 'App:hotels' %}">{% trans 'Hotels' %}</a>
         </li>
         <!-- About -->
-        <li class="nav-item">
+        <li class="nav-item" id="About">
           <a class="nav-link" href="{% url 'App:hotels' %}">{% trans 'About' %}</a>
         </li>
         <!-- Contact Us -->
-        <li class="nav-item">
+        <li class="nav-item" id="ContactUs">
           <a class="nav-link" href="{% url 'App:hotels' %}">{% trans 'Contact us' %}</a>
         </li>
 
@@ -246,6 +238,12 @@
   <script type="text/javascript" src="{% static 'js/mdb.min.js' %}"></script>
   <!-- Initializations -->
   <script type="text/javascript" src="{% static 'js/index.js' %}"></script>
+  <!-- childs -->
+  {% block javascript %}
+    {% compress js %}
+    {% endcompress %}
+  {% endblock javascript %}
+
 </body>
 
 </html>
