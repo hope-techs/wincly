@@ -37,6 +37,7 @@ class HotelQuerySet(models.query.QuerySet):
         return self
 
 
+
 # Hotel Model Manager
 class HoteManager(models.Manager):
     def get_queryset(self):

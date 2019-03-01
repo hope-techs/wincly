@@ -1,6 +1,8 @@
 from django.shortcuts import render
 from django.views import View, generic
 from app.models import Hotel
+from django.db.models import Q
+from itertools import chain
 
 
 
@@ -14,7 +16,7 @@ class TagMixin(object):
 
 
 # Home
-class HomeView(View):
+class HomeView(View, TagMixin):
     # GET
     def get(self, reQ):
 
@@ -38,10 +40,46 @@ class HotelView(generic.ListView, TagMixin):
     def get_queryset(self):
         req = self.request
         query = req.GET.get('q', None)
+        country_query = req.GET.get('country', None)
+        city_query = req.GET.get('city', None)
+        hotel_query = req.GET.get('hotel', None)
         queryset = Hotel.objects.all()
+        cq ,cq2, hq = queryset, queryset, queryset
+        # Country
+        if country_query is not None:
+            cq = Hotel.objects.filter(
+                    Q(country__icontains=query) |
+                    Q(tags__name__icontains=query)
+                ).distinct()
+        # return cq
+        # City
+        if city_query is not None:
+            cq2 = Hotel.objects.filter(
+                    Q(city__icontains=query) |
+                    Q(tags__name__icontains=query)
+                ).distinct()
+        # return cq2
+        # Hotel
+        if hotel_query is not None:
+            hq = Hotel.objects.filter(
+                    Q(name__icontains=query) |
+                    Q(slug__icontains=query) |
+                    Q(tags__name__icontains=query)
+                ).distinct()
+        # return hq
         if query is not None:
             queryset = Hotel.objects.search(query)
-        return queryset
+        # return queryset
+
+        query_chain = chain(
+            cq,
+            cq2,
+            hq
+        )
+        qs = sorted(query_chain, key=lambda instance: instance.pk,
+            reverse=True)
+        return qs
+
 
 
 class HotelDetailView(generic.DetailView, TagMixin):
