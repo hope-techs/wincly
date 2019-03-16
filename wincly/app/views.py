@@ -79,3 +79,16 @@ class HotelDetailView(generic.DetailView, TagMixin):
     context_object_name = 'Hotel'
 
 
+
+# Home
+class AboutView(View, TagMixin):
+    # GET
+    def get(self, reQ):
+        Template = 'about.html'
+        context = {  }
+
+        return render(reQ, Template, context)
+
+
+
+

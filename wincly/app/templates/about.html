@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+
+
+{% load static i18n %}
+
+
+{% block title %}
+    {{ block.super }} | About
+{% endblock title %}
+
+{% block css %}
+    {{ block.super }}
+    <link href="{% static 'css/about.css' %}" rel="stylesheet">
+{% endblock css %}
+
+{% block javascript %}
+    <script src="{% static 'js/about.js' %}"></script>
+{% endblock javascript %}
+
+{% block main_content %}
+
+
+    <div class="descriptions">
+        <p>وینکلی دریچه ای به شهرت و افزایش قدرت برندینگ هرچه بیشتر هتل ها و رستوران هاست</p>
+        <p>با نگاه دقیقتر، وینکلی نخستین مجله تخصصی بین المللی در زمینه هتلگردی و</p>
+        <p>رستوران گردی می باشد که فعالیت خود را از مهرماه سال 1396 آغاز کرده و تا به حال با</p>
+        <p>شرکت های خدمات مسافرتی مطرح در کشور از جمله هلدینگ هتل های پارسیان و شرکت</p>
+        <p>هواپیمایی آتا همکاری موثری داشته است و در حال گسترش همکاری های خود در دو بعد</p>            
+        <p>برون و درون مرزی می باشد</p>            
+    </div>
+    <div class="first-txts-container">
+        <div class="first-txt-1">
+                Wincly Travel Magazine 
+        </div>
+        <div class="first-txt-2">
+                <span>IN</span>
+                <span>JOY</span>
+                <span>WE</span>
+                <span>TRUST</span>
+        </div>
+    </div>
+
+{% endblock main_content %}
+
+
+
+
