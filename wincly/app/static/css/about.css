@@ -48,14 +48,14 @@ body{
 .first-txts-container{
     position: fixed;
     left: 0;
-    bottom: 16%;
+    bottom: 25%;
     transform: translateY(0);
     width: 100%;
     text-align: center;
     animation: first-txt-container 5s ease;
 }
 
-.first-txt-1{
+.first-txt-1 {
     font-size: 2.5em;
     margin-bottom: 10px;
     opacity: 0;
@@ -88,13 +88,26 @@ body{
 }
 
 
-.descriptions{
-    padding: 11.8% 10% 11.8% 10%;
+.descriptions {
+    font-family: 'IranSans';
+    /* padding: 15% 10% 11.8% 10%; */
+    padding-top: 10%;
     text-align: center;
-    font-size: 1.5em;
+    font-size: 1.4em;
     font-family: font4;
     animation: descriptions 5s ease;
 }
+.descriptions p {
+    font-family: 'IranSans';
+}
+
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 768px) {
+    .descriptions{
+        padding-top: 15%;
+    }
+} 
 
 @keyframes descriptions {
     0%   {
@@ -121,7 +134,7 @@ body{
         transform: translateY(50%);
     }
     75%  {
-        bottom: 16%;
+        bottom: 25%;
         transform: translateY(0);
     }
 }
@@ -184,6 +197,13 @@ body{
     60%  {
         opacity: 1;
     }
+}
+
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
 }
 
 
