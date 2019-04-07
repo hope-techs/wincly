@@ -99,6 +99,7 @@ body{
 }
 .descriptions p {
     font-family: 'IranSans';
+    direction: rtl;
 }
 
 
