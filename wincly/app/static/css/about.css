@@ -31,7 +31,6 @@
 
 html, body {
     overflow-x: hidden;
-    overflow-y: hidden;
 }
 
 body{
@@ -52,7 +51,7 @@ body{
     transform: translateY(0);
     width: 100%;
     text-align: center;
-    animation: first-txt-container 5s ease;
+    animation: first-txt-container 6s ease;
 }
 
 .first-txt-1 {
@@ -60,7 +59,7 @@ body{
     margin-bottom: 10px;
     opacity: 0;
     font-family: font5;
-    animation: first-txt-1 5s linear;
+    animation: first-txt-1 6s linear;
 }
 
 .first-txt-2{
@@ -75,16 +74,16 @@ body{
 }
 
 .first-txt-2 > span:nth-child(1){
-    animation: first-txt-2-1 4s linear;
+    animation: first-txt-2-1 6s linear;
 }
 .first-txt-2 > span:nth-child(2){
-    animation: first-txt-2-2 4s linear;
+    animation: first-txt-2-2 6s linear;
 }
 .first-txt-2 > span:nth-child(3){
-    animation: first-txt-2-3 4s linear;
+    animation: first-txt-2-3 6s linear;
 }
 .first-txt-2 > span:nth-child(4){
-    animation: first-txt-2-4 4s linear;
+    animation: first-txt-2-4 6s linear;
 }
 
 
@@ -95,7 +94,8 @@ body{
     text-align: center;
     font-size: 1.4em;
     font-family: font4;
-    animation: descriptions 5s ease;
+    animation: descriptions 6s ease;
+    height: 100%;
 }
 .descriptions p {
     font-family: 'IranSans';
@@ -202,11 +202,14 @@ body{
 
 
 footer {
-    position: absolute;
-    bottom: 0px;
-    width: 100%;
+    /* position: absolute; */
+    /* bottom: 0px; */
+    /* width: 100%; */
 }
 
+.deslines {
+    line-height: 2em;
+}
 
 
 
