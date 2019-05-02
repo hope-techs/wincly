@@ -47,7 +47,7 @@ body{
 .first-txts-container{
     position: fixed;
     left: 0;
-    bottom: 25%;
+    bottom: 1%;
     transform: translateY(0);
     width: 100%;
     text-align: center;
@@ -56,6 +56,7 @@ body{
 
 .first-txt-1 {
     font-size: 2.5em;
+    /* font-size: 43px; */
     margin-bottom: 10px;
     opacity: 0;
     font-family: font5;
@@ -64,6 +65,7 @@ body{
 
 .first-txt-2{
     font-size: 2em;
+    /* font-size: 28px; */
     font-family: font1;
 }
 
@@ -90,9 +92,10 @@ body{
 .descriptions {
     font-family: 'IranSans';
     /* padding: 15% 10% 11.8% 10%; */
-    padding-top: 10%;
+    padding-top: 20%;
     text-align: center;
     font-size: 1.4em;
+    /* font-size: 25px; */
     font-family: font4;
     animation: descriptions 6s ease;
     height: 100%;
@@ -108,7 +111,7 @@ body{
     .descriptions{
         padding-top: 15%;
     }
-} 
+}
 
 @keyframes descriptions {
     0%   {
@@ -135,7 +138,7 @@ body{
         transform: translateY(50%);
     }
     75%  {
-        bottom: 25%;
+        bottom: 1%;
         transform: translateY(0);
     }
 }
@@ -210,6 +213,3 @@ footer {
 .deslines {
     line-height: 2em;
 }
-
-
-
