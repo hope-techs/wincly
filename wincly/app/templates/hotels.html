@@ -45,7 +45,9 @@
 
                                 <!-- Body -->
                                 <div class="card-body">
-                                    <h5 class="card-title alignMid">{{ hotel.name }}</h5>
+                                    <h5 class="card-title alignMid">
+                                      <a href="{{ hotel.get_absolute_url }}">{{ hotel.name }}</a>
+                                    </h5>
                                     <p class="card-text alignRight">{{ hotel.summary }}</p>
                                     {% comment %} <a href="#" class="btn btn-primary">Go somewhere</a> {% endcomment %}
                                 </div>
@@ -56,7 +58,7 @@
                     {% endfor %}
 
 
-                    </div> 
+                    </div>
 
                 </div>
 
@@ -68,5 +70,3 @@
     <br />
 
 {% endblock main_content %}
-
-

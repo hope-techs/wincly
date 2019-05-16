@@ -1,7 +1,8 @@
 from django.contrib import admin
-from app.models import Hotel
+from app.models import Hotel, HotelImage
 
-
+class ImageInline(admin.TabularInline):
+    model = HotelImage
 
 @admin.register(Hotel)
 class HotelAdmin(admin.ModelAdmin):
@@ -11,7 +12,8 @@ class HotelAdmin(admin.ModelAdmin):
         ('Date & Time', {'fields': ['publish', 'draft', 'created', 'updated']}),
         ('Meta', {'fields': ['tags', 'slug']})
     ]
-    readonly_fields = ('updated', 'created', 'slug')
+    inlines = [ImageInline]
+    readonly_fields = ('updated', 'created', 'slug', 'user')
     # Display
     list_display = ('name', 'updated', 'publish', 'was_published_recently')
 
@@ -21,6 +23,6 @@ class HotelAdmin(admin.ModelAdmin):
     # Search
     search_fields = ['updated', 'name', 'content', 'summary', 'tags']
 
-
-
-
+    def save_model(self, request, obj, form, change):
+        obj.user = request.user
+        super().save_model(request, obj, form, change)

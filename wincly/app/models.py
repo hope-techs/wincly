@@ -121,3 +121,7 @@ class Hotel(models.Model):
 
 
 
+class HotelImage(models.Model):
+    rel = models.ForeignKey(Hotel, related_name='hotel_image', on_delete = models.CASCADE, verbose_name = _('Hotel'))
+    image = models.ImageField(blank = True, null = True, upload_to = upload_path, verbose_name = _('Image'))
+    user = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = _('User'))

@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.views import View, generic
-from app.models import Hotel
+from app.models import Hotel, HotelImage
 from django.db.models import Q
 from itertools import chain
 
@@ -72,15 +72,22 @@ class HotelView(generic.ListView, TagMixin):
         return qs
 
 
-
+# Hotel Detail View
 class HotelDetailView(generic.DetailView, TagMixin):
     model = Hotel
     template_name = 'hotel_detail.html'
-    context_object_name = 'Hotel'
+    context_object_name = 'hotel'
+
+    def get_context_data(self, **kwargs):
+        # Call the base implementation first to get a context
+        context = super().get_context_data(**kwargs)
+        current_hotel = context.get('hotel')
+        # Add in a QuerySet of all the books
+        context['hotel_images'] = current_hotel.hotel_image.all()
+        return context
 
 
-
-# Home
+# About
 class AboutView(View, TagMixin):
     # GET
     def get(self, reQ):
@@ -88,7 +95,3 @@ class AboutView(View, TagMixin):
         context = {  }
 
         return render(reQ, Template, context)
-
-
-
-
