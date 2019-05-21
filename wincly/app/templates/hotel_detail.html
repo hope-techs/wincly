@@ -37,7 +37,17 @@
     </div>
 
     <!-- Content -->
-    
+    <div>
+      <div class="p-5 jumbotron">
+        <h3 class="centerlize">{{ hotel.name }}</h3>
+        <p>Location    {{ hotel.country }} - {{ hotel.city }}</p>
+        <p>Website    <a href="{{ hotel.website }}">{{ hotel.website }}</a></p>
+        <p>Booked at    <a href="{{ hotel.booked }}">{{ hotel.booked }}</a></p>
+        <p class="p-3">
+          {{ hotel.content }}
+        </p>
+      </div>
+    </div>
 
   </div>
 

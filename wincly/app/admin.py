@@ -10,7 +10,7 @@ class HotelAdmin(admin.ModelAdmin):
         ('Info', {'fields': ['name', 'user', 'image', 'content', 'summary']}),
         ('Location', {'fields': ['country', 'city']}),
         ('Date & Time', {'fields': ['publish', 'draft', 'created', 'updated']}),
-        ('Meta', {'fields': ['tags', 'slug']})
+        ('Meta', {'fields': ['tags', 'slug', 'website', 'booked']})
     ]
     inlines = [ImageInline]
     readonly_fields = ('updated', 'created', 'slug', 'user')

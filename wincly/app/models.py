@@ -83,6 +83,10 @@ class Hotel(models.Model):
     # Utils
     slug = models.SlugField(allow_unicode = True, unique = True, verbose_name = _('Slug'))
     tags = TaggableManager(blank = True, verbose_name = _('Tags'))
+    website = models.URLField(blank = True, null = True, verbose_name = _('Website'))
+    # booking.com url
+    booked = models.URLField(blank = True, null = True, verbose_name = _('Booked at'))
+
 
     objects = HoteManager()
 
