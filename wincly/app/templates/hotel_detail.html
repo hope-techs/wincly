@@ -8,18 +8,18 @@
 
 {% block content %}
 
-  <div class="container" id="main_section">
+  <div class="container jumbotron" id="main_section">
     <!-- Carousel -->
     <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
       <div class="carousel-inner">
         <!-- main image -->
         <div class="carousel-item active">
-          <img class="d-block w-100" src="{{ MEDIA_URL }}{{ hotel.image }}" alt="{{ hotel.name }}">
+          <img class="img-fluid rounded w-100" src="{{ MEDIA_URL }}{{ hotel.image }}" alt="{{ hotel.name }}">
         </div>
         <!-- more images -->
         {% for img_object in hotel_images %}
           <div class="carousel-item">
-            <img class="d-block w-100" src="{{ MEDIA_URL }}{{ img_object.image }}"
+            <img class="img-fluid rounded w-100" src="{{ MEDIA_URL }}{{ img_object.image }}"
               alt="Second slide">
           </div>
         {% endfor %}
@@ -38,14 +38,28 @@
 
     <!-- Content -->
     <div>
-      <div class="p-5 jumbotron">
-        <h3 class="centerlize">{{ hotel.name }}</h3>
-        <p>Location    {{ hotel.country }} - {{ hotel.city }}</p>
-        <p>Website    <a href="{{ hotel.website }}">{{ hotel.website }}</a></p>
-        <p>Booked at    <a href="{{ hotel.booked }}">{{ hotel.booked }}</a></p>
+      <div class="p-5">
+        <h3 class="centerlize mb-5">{{ hotel.name }}</h3>
+        <p><i class="fas fa-map-marker-alt loc_icon"></i> {{ hotel.country }} - {{ hotel.city }}</p>
+        <p><i class="fas fa-globe globe_icon"></i> Website    <a href="{{ hotel.website }}">{{ hotel.website }}</a></p>
+        <p><i class="far fa-bookmark bookmark_icon"></i> Booked at    <a href="{{ hotel.booked }}">{{ hotel.booked }}</a></p>
         <p class="p-3">
           {{ hotel.content }}
         </p>
+        <!-- Tags -->
+        <div class="row">
+          {% for tag in hotel.tags.names %}
+          <a class="col" style="color: royalblue; text-align: center;">
+            <h6 class="font-weight-bold mb-3">
+
+              <i>
+                #{{ tag }}
+              </i>
+
+            </h6>
+          </a>
+          {% endfor %}
+        </div>
       </div>
     </div>
 

@@ -1,7 +1,25 @@
+body {
+  background-image: url("../img/front_desk.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #main_section {
-  margin-top: 15%;
+  margin-top: 8%;
 }
 
 .centerlize {
   text-align: center;
+}
+.loc_icon {
+  color: blue;
+}
+.globe_icon {
+  color: brown;
+}
+.bookmark_icon {
+  color: grey;
 }
