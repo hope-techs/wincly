@@ -1,0 +1,41 @@
+body {
+  background-image: url("../img/front_desk.jpg");
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+#contact_main_div {
+  margin-top: 7%;
+}
+
+#Map {
+    width: 100%;
+    height: 100%;
+    height: 400px;
+    /* background-color: rgb(149, 162, 197); */
+    opacity: .8;
+}
+
+#Map-btn p{
+    color: aliceblue;
+}
+
+#contact {
+    /* position: relative; */
+    /* direction: ltr !important; */
+    /* vertical-align: middle; */
+    padding: 20px;
+    /* top: 100px; */
+}
+
+#contact-form {
+    /* position: relative; */
+    opacity: .7;
+}
+
+.map_icons {
+  font-size: 2rem;
+}

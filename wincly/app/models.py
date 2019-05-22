@@ -124,8 +124,28 @@ class Hotel(models.Model):
         # do_something_else()
 
 
-
+# Hotel extra images
 class HotelImage(models.Model):
     rel = models.ForeignKey(Hotel, related_name='hotel_image', on_delete = models.CASCADE, verbose_name = _('Hotel'))
     image = models.ImageField(blank = True, null = True, upload_to = upload_path, verbose_name = _('Image'))
     user = models.ForeignKey(User, on_delete = models.CASCADE, verbose_name = _('User'))
+
+
+
+# Contact Us
+class Contact (models.Model):
+    first_name = models.CharField(max_length=100, verbose_name=_('First Name'))
+    last_name = models.CharField(max_length=100, verbose_name=_('Last Name'))
+    email = models.EmailField(unique=False, verbose_name=_('Email'))
+    phone = models.CharField(max_length=20, blank=True, null=True, verbose_name=_('Phone'))
+    subject = models.CharField(max_length=100, verbose_name=_('Subject'))
+    content = models.TextField(verbose_name=_('Content'))
+    updated = models.DateTimeField(auto_now_add=False, auto_now=True, verbose_name= _('Updated'))
+    checked = models.BooleanField(default = False, verbose_name = _('Checked'))
+
+    class Meta:
+        verbose_name = _('Contact Us')
+        verbose_name_plural = _('Contact Us')
+
+    def __str__(self):
+        return self.subject

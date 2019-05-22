@@ -1,5 +1,7 @@
 from django.contrib import admin
-from app.models import Hotel, HotelImage
+from app.models import Hotel, HotelImage, Contact
+from app.forms import ContactForm
+
 
 class ImageInline(admin.TabularInline):
     model = HotelImage
@@ -26,3 +28,23 @@ class HotelAdmin(admin.ModelAdmin):
     def save_model(self, request, obj, form, change):
         obj.user = request.user
         super().save_model(request, obj, form, change)
+
+
+
+
+@admin.register(Contact)
+class ContactAdmin(admin.ModelAdmin):
+    form = ContactForm
+    fieldsets = [
+        ('Information', {'fields': ['subject', 'first_name', 'last_name', 'email', 'phone', 'content']}),
+        ('Admin', {'fields': ['checked',]})
+    ]
+    readonly_fields = ('updated',)
+    # Display
+    list_display = ('subject', 'email', 'updated', 'checked')
+
+    # Filter
+    list_filter = ['email', 'updated']
+
+    # Search
+    search_fields = ['subject', 'first_name', 'last_name', 'email', 'phone', 'content', 'updated']

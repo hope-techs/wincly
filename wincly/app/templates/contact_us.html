@@ -1,0 +1,178 @@
+{% extends "base.html" %}
+{% block title %}
+  {{ block.super }} | Contact Us
+{% endblock title %}
+{% load static i18n %}
+{% block css %}
+  {{ block.super }}
+  <!-- Customize -->
+  <link rel="stylesheet" href="{% static 'css/contact_us.css' %}" />
+{% endblock css %}
+
+{% block javascript %}
+  {{ block.super }}
+  <!-- Customize -->
+  <script src="{% static 'js/contact_us.js' %}"></script>
+
+  {% endblock javascript %}
+
+{% block content %}
+
+
+<div id="contact_main_div">
+
+
+  <!-- Contact -->
+  <section class="my-5" id="contact">
+
+
+    <!-- Form row -->
+    <div class="row col-lg-12 col-md-12 col-sm-12">
+
+      <!-- Form container -->
+      <div class="col-lg-6 col-md-12 col-sm-12 mb-4">
+
+        <!-- Form  -->
+        <form class="card" id="contact-form" method="POST">{% csrf_token %}
+          <div class="card-body">
+            <!-- Header -->
+            <div class="form-header accent-1">
+              <h3 class="mt-2">
+                <i class="fas fa-envelope md-24 mt-4 blue-text"></i>
+                Write to Me:</h3>
+            </div>
+            <p class="dark-grey-text">We'll write rarely, but only the best content.</p>
+
+            <!-- Messages -->
+            {% if messages %}
+            <ul class="messages alert alert-info">
+              {% for message in messages %}
+              <li id="message_{{ forloop.counter }}" {% if message.tags %} class="{{ message.tags }}" {% endif %}>
+                {{ message }}
+              </li>
+              {% endfor %}
+            </ul>
+            {% endif %}
+
+            <!-- Errors -->
+            {% if form.errors %}
+            <div class="alert alert-danger" role="alert">
+              {% for err in form.errors %} {{ err }} {% endfor %}
+            </div>
+            {% endif %}
+            <!-- Name -->
+            {% comment %} {{ form.first_name.errors }} {% endcomment %}
+            <div class="md-form">
+              <input type="text" id="id_first_name" class="form-control" name="first_name" maxlength='100' autocomplete="off" required />
+              <label for="{{ form.first_name.label }}">
+                <span>
+                  <i class="fa fa-user grey-text"></i>
+                </span> Name *
+              </label>
+            </div>
+            <!-- Email -->
+            {% comment %} {{ form.email.errors }} {% endcomment %}
+            <div class="md-form">
+              <input type="email" id="id_email" class="form-control" name="email" maxlength='254' autocomplete="off" required />
+              <label for="{{ form.email.label }}">
+                <span>
+                  <i class="fa fa-envelope grey-text"></i>
+                </span>{{ form.email.label }} *
+              </label>
+            </div>
+            <!-- Phone -->
+            {% comment %} {{ form.phone.errors }} {% endcomment %}
+            <div class="md-form">
+              <input type="text" id="id_phone" class="form-control" name="phone" maxlength='20' autocomplete="off" />
+              <label for="{{ form.phone.label }}">
+                <span>
+                  <i class="fa fa-mobile grey-text"></i>
+                </span>{{ form.phone.label }}
+              </label>
+            </div>
+            <!-- Subject -->
+            {% comment %} {{ form.subject.errors }} {% endcomment %}
+            <div class="md-form">
+              <input type="text" id="id_ubject" class="form-control" name="subject" maxlength='100' autocomplete="off" required />
+              <label for="{{ form.subject.label }}">
+                <span>
+                  <i class="fa fa-tag grey-text"></i>
+                </span>{{ form.subject.label }} *
+              </label>
+            </div>
+            <!-- Content -->
+            {% comment %} {{ form.content.errors }} {% endcomment %}
+            <div class="md-form">
+              <textarea type="text" id="id_content" class="form-control md-textarea" cols="30" rows="6" name="content" required></textarea>
+              <label for="{{ form.content.label }}">
+                <span>
+                  <i class="fa fa-comment" aria-hidden="true"></i>
+                </span> {{ form.content.label }} *
+              </label>
+            </div>
+
+            <div class="text-center">
+              <button class="btn btn-blue" type="submit">Send</button>
+            </div>
+          </div>
+        </form>
+
+      </div>
+
+
+      <!-- Map container -->
+      <div class="col-lg-6 col-md-12 col-sm-12">
+
+        <!-- Google map-->
+        <div id="Map" class="rounded z-depth-1-half map-container">
+
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d23054.49828412707!2d50.94513869495479!3d35.83122644286641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2s!4v1532181565597"
+            width="100%" height="100%" frameborder="0" style="border:0" allowfullscreen></iframe>
+
+        </div>
+        <br>
+        <!-- Buttons-->
+        <div class="row text-center" id="Map-btn">
+          <div class="col col-md-4 col-sm-4">
+            <a class="btn-floating accent-1 map_icons">
+              <i class="fas fa-map-marker-alt mt-4 blue-text"></i>
+            </a>
+            <p class="mb-md-0">IR Iran, Tehran</p>
+          </div>
+          <div class="col col-md-4 col-sm-4">
+            <a class="btn-floating accent-1 map_icons">
+              <i class="fas fa-phone mt-4 blue-text"></i>
+            </a>
+            <p></p>
+            <p class="mb-md-0">9:00 - 21:00</p>
+          </div>
+          <div class="col col-md-4 col-sm-4">
+            <a class="btn-floating accent-1 map_icons">
+              <i class="fas fa-envelope mt-4 blue-text"></i>
+            </a>
+            <p class="mb-0">info@wincly.com</p>
+          </div>
+        </div>
+
+      </div>
+
+
+    </div>
+    <!-- Grid row -->
+
+  </section>
+
+
+</div>
+
+<!-- Footer -->
+{% block footer %}
+<div class="page-footer font-small unique-color-dark pt-0" id="footer">
+  <div class="footer-copyright py-3 text-center" style="color : #969696;">
+    <span>© <span class="footer_logo">SMB </span>
+      <span style="color:royalblue;">H</span>
+      All rights reserved.
+    </span>
+  </div>
+</div>
+{% endblock footer %} {% endblock content %}
