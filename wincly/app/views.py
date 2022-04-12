@@ -68,9 +68,7 @@ class HotelView(generic.ListView, TagMixin):
         query_chain = chain(
             queryset
         )
-        qs = sorted(query_chain, key=lambda instance: instance.pk,
-            reverse=True)
-        return qs
+        return sorted(query_chain, key=lambda instance: instance.pk, reverse=True)
 
 
 # Hotel Detail View
