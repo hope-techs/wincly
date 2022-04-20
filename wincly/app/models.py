@@ -23,17 +23,17 @@ class HotelQuerySet(models.query.QuerySet):
     def search(self, query):
         if query:
             query = query.strip()
-            qs = self.filter(
-                                Q(name__icontains=query) |
-                                Q(country__icontains=query) |
-                                Q(city__icontains=query) |
-                                Q(content__icontains=query) |
-                                Q(summary__icontains=query) |
-                                Q(user__username__icontains=query) |
-                                Q(slug__icontains=query) |
-                                Q(tags__name__icontains=query)
-                            ).distinct()
-            return qs
+            return self.filter(
+                Q(name__icontains=query)
+                | Q(country__icontains=query)
+                | Q(city__icontains=query)
+                | Q(content__icontains=query)
+                | Q(summary__icontains=query)
+                | Q(user__username__icontains=query)
+                | Q(slug__icontains=query)
+                | Q(tags__name__icontains=query)
+            ).distinct()
+
         return self
 
 
@@ -45,9 +45,9 @@ class HoteManager(models.Manager):
 
     # Active Hotels
     def active(self, *args, **kwargs):
-        # __lte Less than & __gte Greater than
-        qs = super(HoteManager, self).filter(draft=False, publish__lte=timezone.now())
-        return qs
+        return super(HoteManager, self).filter(
+            draft=False, publish__lte=timezone.now()
+        )
 
     # Search
     def search(self, query):
@@ -112,7 +112,7 @@ class Hotel(models.Model):
 
     # formatting hotel objects to show
     def __str__(self):
-        return '{} - {}'.format(self.name, self.created)
+        return f'{self.name} - {self.created}'
 
 
     # OverRiding Save Method
